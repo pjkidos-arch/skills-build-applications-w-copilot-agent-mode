@@ -18,9 +18,12 @@ function Home() {
 function App() {
   return (
     <div className="container py-4">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <nav className="navbar navbar-expand-lg navbar-custom mb-4">
         <div className="container-fluid">
-          <NavLink to="/" className={({ isActive }) => 'navbar-brand' + (isActive ? ' active' : '')}>OctoFit Tracker</NavLink>
+            <NavLink to="/" className={({ isActive }) => 'navbar-brand d-flex align-items-center' + (isActive ? ' active' : '')}>
+              <img src="/octofitapp-small.png" alt="OctoFit" className="navbar-brand-logo me-2" />
+              OctoFit Tracker
+            </NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#octofitNavbar" aria-controls="octofitNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

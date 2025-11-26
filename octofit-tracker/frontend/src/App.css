@@ -1,3 +1,15 @@
+:root{
+  --bg-color: #f4f7fb;
+  --text-color: #12202b;
+  --accent-color: #0d6efd; /* bootstrap primary */
+  --muted-color: #6c757d;
+  --nav-bg: #0b5ed7;
+  --table-head-bg: #0d6efd;
+  --table-head-color: #ffffff;
+  --btn-bg: #0d6efd;
+  --btn-color: #ffffff;
+}
+
 .App {
   text-align: center;
 }
@@ -13,20 +25,60 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.App-header{
+  background-color: var(--bg-color);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  font-size:calc(10px + 2vmin);
+  color:var(--text-color);
 }
 
-.App-link {
-  color: #61dafb;
+.App-link{
+  color:var(--accent-color);
 }
+
+/* Navbar */
+.navbar-custom{
+  background-color:var(--nav-bg) !important;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link{
+  color:#fff !important;
+}
+.navbar-brand-logo{
+  height:36px;
+  width:auto;
+  border-radius:6px;
+}
+
+/* Heading colors */
+h1, h2, h3, h4 {
+  color:var(--accent-color);
+}
+
+/* Link colors */
+a {
+  color:var(--accent-color);
+}
+
+/* Buttons: custom primary */
+.btn-custom{
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: none;
+}
+.btn-custom:hover{ opacity:0.9 }
+
+/* Tables */
+.table thead th{
+  background: var(--table-head-bg);
+  color: var(--table-head-color);
+}
+.table-striped tbody tr:nth-of-type(odd){ background-color: #ffffff }
+.table-hover tbody tr:hover{ background-color: #f1f5ff }
 
 @keyframes App-logo-spin {
   from {
