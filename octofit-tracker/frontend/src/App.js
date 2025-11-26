@@ -19,8 +19,12 @@ function App() {
   return (
     <div className="container py-4">
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div className="container-fluid">
           <NavLink to="/" className={({ isActive }) => 'navbar-brand' + (isActive ? ' active' : '')}>OctoFit Tracker</NavLink>
-        <div className="collapse navbar-collapse">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#octofitNavbar" aria-controls="octofitNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="octofitNavbar">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <NavLink to="/activities" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
@@ -43,6 +47,7 @@ function App() {
               </NavLink>
             </li>
           </ul>
+          </div>
         </div>
       </nav>
 
@@ -52,6 +57,7 @@ function App() {
         <Route path="/teams" element={<Teams />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/users" element={<Users />} />
+        <Route path="*" element={<div><h2>404 — Not Found</h2><p>The page you're looking for doesn't exist.</p></div>} />
       </Routes>
     </div>
   );
