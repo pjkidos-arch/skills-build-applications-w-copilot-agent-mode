@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import Activities from './components/Activities';
 import Teams from './components/Teams';
 import Leaderboard from './components/Leaderboard';
@@ -19,13 +19,29 @@ function App() {
   return (
     <div className="container py-4">
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
-        <Link to="/" className="navbar-brand">OctoFit Tracker</Link>
+          <NavLink to="/" className={({ isActive }) => 'navbar-brand' + (isActive ? ' active' : '')}>OctoFit Tracker</NavLink>
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item"><Link to="/activities" className="nav-link">Activities</Link></li>
-            <li className="nav-item"><Link to="/teams" className="nav-link">Teams</Link></li>
-            <li className="nav-item"><Link to="/leaderboard" className="nav-link">Leaderboard</Link></li>
-            <li className="nav-item"><Link to="/users" className="nav-link">Users</Link></li>
+            <li className="nav-item">
+              <NavLink to="/activities" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+                Activities
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/teams" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+                Teams
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/leaderboard" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+                Leaderboard
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/users" className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}>
+                Users
+              </NavLink>
+            </li>
           </ul>
         </div>
       </nav>
