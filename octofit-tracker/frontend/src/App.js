@@ -7,10 +7,14 @@ import Users from './components/Users';
 
 function Home() {
   return (
-    <div className="text-center">
-      <img src="/octofitapp-small.png" alt="OctoFit" className="img-fluid mb-3" style={{ maxWidth: '180px' }} />
-      <h1>Welcome to OctoFit Tracker</h1>
-      <p className="lead">Track activity, join teams, and compete with friends.</p>
+    <div className="mb-5">
+      <div className="d-flex align-items-center">
+        <img src="/octofitapp-small.png" alt="OctoFit" className="home-logo me-3" />
+        <div>
+          <h1 className="mb-1">Welcome to OctoFit Tracker</h1>
+          <p className="lead mb-0">Track activity, join teams, and compete with friends.</p>
+        </div>
+      </div>
     </div>
   );
 }

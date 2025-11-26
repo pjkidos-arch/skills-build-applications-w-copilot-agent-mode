@@ -80,6 +80,9 @@ a {
 .table-striped tbody tr:nth-of-type(odd){ background-color: #ffffff }
 .table-hover tbody tr:hover{ background-color: #f1f5ff }
 
+/* Home logo */
+.home-logo{ height:72px; width:auto; border-radius:8px; }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
