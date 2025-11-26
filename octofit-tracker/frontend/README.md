@@ -8,6 +8,22 @@ This project was created with Create React App and serves as the frontend for th
 - The app image is copied from `docs/octofitapp-small.png` into `public/` and is available at `/octofitapp-small.png`.
 - `react-router-dom` is installed and `BrowserRouter` wraps the app in `src/index.js`.
 
+### Codespace API configuration
+
+Set the `REACT_APP_CODESPACE_NAME` environment variable (the Codespace name) when running or building the frontend so API requests point to the Django REST API hosted in the Codespace.
+
+Example (Linux/macOS):
+
+```bash
+export REACT_APP_CODESPACE_NAME=your-codespace-name
+npm start --prefix octofit-tracker/frontend
+```
+
+The app constructs API URLs like:
+`https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/<endpoint>/`
+For development without a codespace, the app falls back to `http://localhost:8000/api`.
+
+
 ## Available Scripts
 
 # Getting Started with Create React App
