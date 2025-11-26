@@ -23,14 +23,17 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from django.http import JsonResponse
 from .views import UserViewSet, TeamViewSet, ActivityViewSet, WorkoutViewSet, LeaderboardViewSet
+import os
 @api_view(['GET'])
 def api_root(request, format=None):
+    codespace_name = os.environ.get('CODESPACE_NAME', '')
+    base_url = f"http://{codespace_name}-8000.app.github.dev" if codespace_name else request.build_absolute_uri('/')[:-1]
     return Response({
-        'users': reverse('user-list', request=request, format=format),
-        'teams': reverse('team-list', request=request, format=format),
-        'activities': reverse('activity-list', request=request, format=format),
-        'workouts': reverse('workout-list', request=request, format=format),
-        'leaderboard': reverse('leaderboard-list', request=request, format=format),
+        'users': f"{base_url}/api/users/",
+        'teams': f"{base_url}/api/teams/",
+        'activities': f"{base_url}/api/activities/",
+        'workouts': f"{base_url}/api/workouts/",
+        'leaderboard': f"{base_url}/api/leaderboard/",
     })
 
 router = routers.DefaultRouter()
