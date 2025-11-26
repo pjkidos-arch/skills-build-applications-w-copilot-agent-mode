@@ -34,17 +34,26 @@ export default function Leaderboard() {
     <div>
       <h2>Leaderboard</h2>
       {rows.length === 0 && <p>No leaderboard entries.</p>}
-      <ol className="list-group list-group-numbered">
-        {rows.map((r) => (
-          <li key={r.id} className="list-group-item d-flex justify-content-between align-items-start">
-            <div className="ms-2 me-auto">
-              <div className="fw-bold">{r.user || r.name || 'Unknown'}</div>
-              <div>{r.points !== undefined ? `${r.points} pts` : r.score}</div>
-            </div>
-            <span className="badge bg-primary rounded-pill">#{r.rank || r.position || r.id}</span>
-          </li>
-        ))}
-      </ol>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">User</th>
+              <th scope="col">Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.id}>
+                <td>#{r.rank || r.position || r.id}</td>
+                <td>{r.user || r.name || 'Unknown'}</td>
+                <td>{r.points !== undefined ? `${r.points} pts` : r.score}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

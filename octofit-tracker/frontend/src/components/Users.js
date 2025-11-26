@@ -34,15 +34,28 @@ export default function Users() {
     <div>
       <h2>Users</h2>
       {users.length === 0 && <p>No users found.</p>}
-      <ul className="list-group">
-        {users.map((u) => (
-          <li key={u.id} className="list-group-item">
-            <strong>{u.username || u.email || 'Unknown User'}</strong>
-            <div>{u.full_name}</div>
-            <small className="text-muted">ID: {u.id}</small>
-          </li>
-        ))}
-      </ul>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Username</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((u) => (
+              <tr key={u.id}>
+                <td>{u.id}</td>
+                <td>{u.username || u.email || 'Unknown User'}</td>
+                <td>{u.full_name}</td>
+                <td>{u.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

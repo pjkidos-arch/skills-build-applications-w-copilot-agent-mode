@@ -34,15 +34,26 @@ export default function Teams() {
     <div>
       <h2>Teams</h2>
       {teams.length === 0 && <p>No teams found.</p>}
-      <ul className="list-group">
-        {teams.map((t) => (
-          <li key={t.id} className="list-group-item">
-            <strong>{t.name}</strong>
-            <div>{t.description}</div>
-            <small className="text-muted">ID: {t.id}</small>
-          </li>
-        ))}
-      </ul>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {teams.map((t) => (
+              <tr key={t.id}>
+                <td>{t.id}</td>
+                <td>{t.name}</td>
+                <td>{t.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

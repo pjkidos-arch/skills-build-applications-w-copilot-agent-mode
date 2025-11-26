@@ -35,15 +35,26 @@ export default function Activities() {
     <div>
       <h2>Activities</h2>
       {activities.length === 0 && <p>No activities found.</p>}
-      <ul className="list-group">
-        {activities.map((a) => (
-          <li key={a.id} className="list-group-item">
-            <strong>{a.title || a.name || 'Unnamed Activity'}</strong>
-            <div>{a.description}</div>
-            <small className="text-muted">ID: {a.id}</small>
-          </li>
-        ))}
-      </ul>
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {activities.map((a) => (
+              <tr key={a.id}>
+                <td>{a.id}</td>
+                <td>{a.title || a.name || 'Unnamed Activity'}</td>
+                <td>{a.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
