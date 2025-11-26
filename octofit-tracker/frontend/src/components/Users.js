@@ -14,7 +14,9 @@ export default function Users() {
         return resp.json();
       })
       .then((data) => {
-        setUsers(data);
+        console.log('Users fetched:', data);
+        const list = Array.isArray(data) ? data : Array.isArray(data?.results) ? data.results : [];
+        setUsers(list);
         setLoading(false);
       })
       .catch((err) => {

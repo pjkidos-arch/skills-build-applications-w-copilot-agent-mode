@@ -14,7 +14,10 @@ export default function Activities() {
         return resp.json();
       })
       .then((data) => {
-        setActivities(data);
+        console.log('Activities fetched:', data);
+        // support paginated responses with `.results` as well as plain array responses
+        const list = Array.isArray(data) ? data : Array.isArray(data?.results) ? data.results : [];
+        setActivities(list);
         setLoading(false);
       })
       .catch((err) => {

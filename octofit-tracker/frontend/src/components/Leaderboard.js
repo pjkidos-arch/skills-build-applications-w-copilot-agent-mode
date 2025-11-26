@@ -14,7 +14,9 @@ export default function Leaderboard() {
         return resp.json();
       })
       .then((data) => {
-        setRows(data);
+        console.log('Leaderboard fetched:', data);
+        const list = Array.isArray(data) ? data : Array.isArray(data?.results) ? data.results : [];
+        setRows(list);
         setLoading(false);
       })
       .catch((err) => {

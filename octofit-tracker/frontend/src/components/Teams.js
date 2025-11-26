@@ -14,7 +14,9 @@ export default function Teams() {
         return resp.json();
       })
       .then((data) => {
-        setTeams(data);
+        console.log('Teams fetched:', data);
+        const list = Array.isArray(data) ? data : Array.isArray(data?.results) ? data.results : [];
+        setTeams(list);
         setLoading(false);
       })
       .catch((err) => {
