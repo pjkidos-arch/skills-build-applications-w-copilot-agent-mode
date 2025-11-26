@@ -72,6 +72,14 @@ a {
 }
 .btn-custom:hover{ opacity:0.9 }
 
+/* Override default primary button to match theme */
+.btn-primary{
+  background-color: var(--btn-bg) !important;
+  border-color: var(--btn-bg) !important;
+  color: var(--btn-color) !important;
+}
+.btn-primary:hover{ filter:brightness(0.9) }
+
 /* Tables */
 .table thead th{
   background: var(--table-head-bg);
