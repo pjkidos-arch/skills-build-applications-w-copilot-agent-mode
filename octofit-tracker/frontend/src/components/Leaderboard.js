@@ -8,14 +8,16 @@ export default function Leaderboard() {
 
   useEffect(() => {
     setLoading(true);
+    console.log('Fetching leaderboard from:', endpoints.leaderboard);
     fetch(endpoints.leaderboard)
       .then((resp) => {
         if (!resp.ok) throw new Error('Network response was not ok');
         return resp.json();
       })
       .then((data) => {
-        console.log('Leaderboard fetched:', data);
+        console.log('Leaderboard fetched (raw):', data);
         const list = Array.isArray(data) ? data : Array.isArray(data?.results) ? data.results : [];
+        console.log('Leaderboard normalized list length:', list.length);
         setRows(list);
         setLoading(false);
       })

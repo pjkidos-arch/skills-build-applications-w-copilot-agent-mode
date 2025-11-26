@@ -8,14 +8,16 @@ export default function Users() {
 
   useEffect(() => {
     setLoading(true);
+    console.log('Fetching users from:', endpoints.users);
     fetch(endpoints.users)
       .then((resp) => {
         if (!resp.ok) throw new Error('Network response was not ok');
         return resp.json();
       })
       .then((data) => {
-        console.log('Users fetched:', data);
+        console.log('Users fetched (raw):', data);
         const list = Array.isArray(data) ? data : Array.isArray(data?.results) ? data.results : [];
+        console.log('Users normalized list length:', list.length);
         setUsers(list);
         setLoading(false);
       })

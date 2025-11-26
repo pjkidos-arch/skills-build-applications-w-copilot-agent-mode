@@ -8,14 +8,16 @@ export default function Teams() {
 
   useEffect(() => {
     setLoading(true);
+    console.log('Fetching teams from:', endpoints.teams);
     fetch(endpoints.teams)
       .then((resp) => {
         if (!resp.ok) throw new Error('Network response was not ok');
         return resp.json();
       })
       .then((data) => {
-        console.log('Teams fetched:', data);
+        console.log('Teams fetched (raw):', data);
         const list = Array.isArray(data) ? data : Array.isArray(data?.results) ? data.results : [];
+        console.log('Teams normalized list length:', list.length);
         setTeams(list);
         setLoading(false);
       })

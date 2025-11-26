@@ -8,15 +8,17 @@ export default function Activities() {
 
   useEffect(() => {
     setLoading(true);
+    console.log('Fetching activities from:', endpoints.activities);
     fetch(endpoints.activities)
       .then((resp) => {
         if (!resp.ok) throw new Error('Network response was not ok');
         return resp.json();
       })
       .then((data) => {
-        console.log('Activities fetched:', data);
+        console.log('Activities fetched (raw):', data);
         // support paginated responses with `.results` as well as plain array responses
         const list = Array.isArray(data) ? data : Array.isArray(data?.results) ? data.results : [];
+        console.log('Activities normalized list length:', list.length);
         setActivities(list);
         setLoading(false);
       })
